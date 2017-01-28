@@ -1,0 +1,101 @@
+{
+  "name": "Document",
+  "plural": "documents",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "Custom": {
+      "type": "string"
+    },
+    "AuthorId": {
+      "type": "number",
+      "required": true
+    },
+    "CategoryId": {
+      "type": "number",
+      "required": true
+    },
+    "ThumbnailURL": {
+      "type": "string"
+    },
+    "CreatedBy": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documentTypes": {
+      "type": "hasMany",
+      "model": "DocumentType",
+      "foreignKey": ""
+    },
+    "authors": {
+      "type": "hasMany",
+      "model": "Author",
+      "foreignKey": ""
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": ""
+    },
+    "author": {
+      "type": "belongsTo",
+      "model": "Author",
+      "foreignKey": "AuthorId"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "CategoryId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "userGroup",
+      "permission": "ALLOW",
+      "property": "read"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "Author",
+      "permission": "ALLOW",
+      "property": "read"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "write"
+    }
+  ],
+  "methods": {}
+}
