@@ -1,5 +1,5 @@
 {
-  "name": "userGroup",
+  "name": "UserGroup",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -7,32 +7,32 @@
   },
   "properties": {
     "title": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "description": {
       "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "users": {
-      "type": "hasMany",
-      "model": "user",
-      "foreignKey": ""
-    },
-    "categories": {
-      "type": "hasAndBelongsToMany",
-      "model": "Category",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

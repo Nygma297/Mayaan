@@ -1,6 +1,5 @@
 {
   "name": "Author",
-  "plural": "authors",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -23,6 +22,18 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

@@ -1,6 +1,5 @@
 {
   "name": "Category",
-  "plural": "categories",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -14,22 +13,29 @@
     "description": {
       "type": "string"
     },
-    "groupId": {
+    "createdBy": {
       "type": "string",
-      "required": true
+      "required": true,
+      "description": "For the id of creator of category"
     }
   },
   "validations": [],
   "relations": {
-    "userGroups": {
-      "type": "hasMany",
-      "model": "userGroup",
-      "foreignKey": "groupId"
+    "groups": {
+      "type": "hasAndBelongsToMany",
+      "model": "Group",
+      "foreignKey": "",
+      "through": "CategoryGroup"
     },
     "documents": {
       "type": "hasMany",
       "model": "Document",
-      "foreignKey": ""
+      "foreignKey": "categoryId"
+    },
+    "creator": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "createdBy"
     }
   },
   "acls": [
@@ -40,11 +46,16 @@
       "permission": "DENY"
     },
     {
-      "accessType": "EXECUTE",
+      "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "Admin",
-      "permission": "ALLOW",
-      "property": "read"
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "Admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

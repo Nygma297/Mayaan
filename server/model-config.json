@@ -48,11 +48,19 @@
     "dataSource": "mongoDs",
     "public": true
   },
-  "userGroup": {
+  "Group": {
     "dataSource": "mongoDs",
     "public": true
   },
-  "user": {
+  "AppUser": {
+    "dataSource": "mongoDs",
+    "public": true
+  },
+  "UserGroup": {
+    "dataSource": "mongoDs",
+    "public": true
+  },
+  "CategoryGroup": {
     "dataSource": "mongoDs",
     "public": true
   }

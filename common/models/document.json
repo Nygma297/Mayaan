@@ -1,6 +1,5 @@
 {
   "name": "Document",
-  "plural": "documents",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -21,21 +20,21 @@
       "type": "string",
       "required": true
     },
-    "Custom": {
+    "custom": {
       "type": "string"
     },
-    "AuthorId": {
-      "type": "number",
+    "authorId": {
+      "type": "string",
       "required": true
     },
-    "CategoryId": {
-      "type": "number",
+    "categoryId": {
+      "type": "string",
       "required": true
     },
-    "ThumbnailURL": {
+    "thumbnailURL": {
       "type": "string"
     },
-    "CreatedBy": {
+    "createdBy": {
       "type": "string",
       "required": true
     }
@@ -47,25 +46,15 @@
       "model": "DocumentType",
       "foreignKey": ""
     },
-    "authors": {
-      "type": "hasMany",
-      "model": "Author",
-      "foreignKey": ""
-    },
-    "categories": {
-      "type": "hasMany",
-      "model": "Category",
-      "foreignKey": ""
-    },
     "author": {
       "type": "belongsTo",
       "model": "Author",
-      "foreignKey": "AuthorId"
+      "foreignKey": "authorId"
     },
     "category": {
       "type": "belongsTo",
       "model": "Category",
-      "foreignKey": "CategoryId"
+      "foreignKey": "categoryId"
     }
   },
   "acls": [
@@ -76,18 +65,16 @@
       "permission": "DENY"
     },
     {
-      "accessType": "EXECUTE",
+      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "userGroup",
-      "permission": "ALLOW",
-      "property": "read"
+      "principalId": "Admin",
+      "permission": "ALLOW"
     },
     {
-      "accessType": "EXECUTE",
+      "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$owner",
-      "permission": "ALLOW",
-      "property": "write"
+      "principalId": "Admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
