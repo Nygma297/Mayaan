@@ -15,7 +15,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "users": {
+      "type": "hasMany",
+      "model": "user",
+      "foreignKey": ""
+    },
+    "categories": {
+      "type": "hasAndBelongsToMany",
+      "model": "Category",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",

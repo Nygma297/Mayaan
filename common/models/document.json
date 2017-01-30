@@ -43,7 +43,7 @@
   "validations": [],
   "relations": {
     "documentTypes": {
-      "type": "hasMany",
+      "type": "hasOne",
       "model": "DocumentType",
       "foreignKey": ""
     },
@@ -79,13 +79,6 @@
       "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "userGroup",
-      "permission": "ALLOW",
-      "property": "read"
-    },
-    {
-      "accessType": "EXECUTE",
-      "principalType": "ROLE",
-      "principalId": "Author",
       "permission": "ALLOW",
       "property": "read"
     },
