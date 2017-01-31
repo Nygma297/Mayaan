@@ -16,7 +16,7 @@
     "URL": {
       "type": "string"
     },
-    "type": {
+    "typeId": {
       "type": "string",
       "required": true
     },
@@ -41,10 +41,10 @@
   },
   "validations": [],
   "relations": {
-    "documentTypes": {
+    "documentType": {
       "type": "hasOne",
       "model": "DocumentType",
-      "foreignKey": ""
+      "foreignKey": "typeId"
     },
     "author": {
       "type": "belongsTo",
@@ -74,6 +74,12 @@
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     }
   ],

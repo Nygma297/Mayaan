@@ -12,6 +12,10 @@
     },
     "description": {
       "type": "string"
+    },
+    "createdBy": {
+      "type": "string",
+      "required":true
     }
   },
   "validations": [],
@@ -33,6 +37,12 @@
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "Admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     }
   ],

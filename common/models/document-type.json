@@ -16,10 +16,10 @@
   },
   "validations": [],
   "relations": {
-    "document": {
-      "type": "belongsTo",
+    "documents": {
+      "type": "hasMany",
       "model": "Document",
-      "foreignKey": ""
+      "foreignKey": "typeId"
     }
   },
   "acls": [

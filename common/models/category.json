@@ -22,7 +22,7 @@
   "validations": [],
   "relations": {
     "groups": {
-      "type": "hasAndBelongsToMany",
+      "type": "hasMany",
       "model": "Group",
       "foreignKey": "",
       "through": "CategoryGroup"
