@@ -56,6 +56,18 @@
       "principalType": "ROLE",
       "principalId": "Admin",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Super_admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}

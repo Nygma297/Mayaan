@@ -15,7 +15,7 @@
     },
     "createdBy": {
       "type": "string",
-      "required":true
+      "required": true
     }
   },
   "validations": [],
@@ -43,6 +43,18 @@
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Super_admin",
       "permission": "ALLOW"
     }
   ],
