@@ -22,7 +22,7 @@
       "foreignKey": ""
     },
     "categories": {
-      "type": "hasAndBelongsToMany",
+      "type": "hasMany",
       "model": "Category",
       "foreignKey": "",
       "through": "CategoryGroup"
@@ -45,12 +45,6 @@
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "Admin",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
       "permission": "ALLOW"
     },
     {

@@ -9,7 +9,7 @@
   "validations": [],
   "relations": {
     "userGroups": {
-      "type": "hasAndBelongsToMany",
+      "type": "hasMany",
       "model": "Group",
       "foreignKey": "",
       "through": "UserGroup"
