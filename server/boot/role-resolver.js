@@ -18,7 +18,7 @@ module.exports = function(app) {
       //Check if AppUser can access of the Document associated with this Category
       var Document = app.models.Document;
       Document.count({
-        caegoryId: Category.categoryId
+        categoryId: Category.categoryId
       }, function(err, count) {
         if (err) return cb(err);
 
