@@ -5,7 +5,17 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "CategoryId":{
+      "type":"string", 
+      "required": true
+    },
+    "UserGroupId":{
+      "type":"string",
+      "required":true
+    }
+
+  },
   "validations": [],
   "relations": {},
   "acls": [

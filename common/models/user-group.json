@@ -6,11 +6,13 @@
     "validateUpsert": true
   },
   "properties": {
-    "title": {
-      "type": "string"
+    "userId":{
+      "type":"string", 
+      "required": true
     },
-    "description": {
-      "type": "string"
+    "groupId":{
+      "type":"string",
+      "required":true
     }
   },
   "validations": [],

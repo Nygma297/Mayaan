@@ -36,7 +36,8 @@
     },
     "createdBy": {
       "type": "string",
-      "required": true
+      "required": true,
+      "desc": "Creator's ID"
     }
   },
   "validations": [],
