@@ -1,7 +1,7 @@
-module.exports = function(app) {
-  var role = app.models.role;
+module.exports = (app)=> {
+  var Role = app.models.Role;
 
-  role.registerResolver('team', function(role, context, cb) {
+  Role.registerResolver('member', (Role, context, cb)=> {
     if (context.modelName !== 'Category') {
       return process.nextTick(() => cb(null, false));
     }
@@ -11,15 +11,15 @@ module.exports = function(app) {
       return process.nextTick(() => cb(null, false));
     }
 
-    context.model.findById(context.modelId, function(err, Category) {
+    context.model.findById(context.modelId, (err, Category)=> {
       if(err) return cb(err);
       if(!Category) return cb(new Error("Category not found"));
 
       //Check if AppUser can access of the Document associated with this Category
-      var Document = app.models.Document;
-      Document.count({
+      var AppUser = app.models.AppUser;
+      AppUser.count({
         categoryId: Category.categoryId
-      }, function(err, count) {
+      }, (err, count)=> {
         if (err) return cb(err);
 
         if(count > 0){
