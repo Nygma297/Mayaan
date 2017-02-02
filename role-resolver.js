@@ -1,19 +1,19 @@
-// module.exports = (app)=> {
-//   var Role = app.models.Role;
+module.exports = (app)=> {
+  var Role = app.models.Role;
 
-//   Role.registerResolver('CategoryMember', (role, context, cb)=> {
-//     // Q: Is the current request accessing a Document?
-//     if (context.modelName !== 'Document') {
-//       // A: No. This role is only for Documents: callback with FALSE
-//       return process.nextTick(() => cb(null, false));
-//     }
+  Role.registerResolver('CategoryMember', (role, context, cb)=> {
+    // Q: Is the current request accessing a Document?
+    if (context.modelName !== 'Document') {
+      // A: No. This role is only for Documents: callback with FALSE
+      return process.nextTick(() => cb(null, false));
+    }
 
-//     //Q: Is the AppUser logged in? (there will be an accessToken with an ID if so)
-//     var AppUserId = context.accessToken.userId;
-//     if (!AppUserId) {
-//       //A: No, AppUser is NOT logged in: callback with FALSE
-//       return process.nextTick(() => cb(null, false));
-//     }
+    //Q: Is the AppUser logged in? (there will be an accessToken with an ID if so)
+    var AppUserId = context.accessToken.userId;
+    if (!AppUserId) {
+      //A: No, AppUser is NOT logged in: callback with FALSE
+      return process.nextTick(() => cb(null, false));
+    }
 
     // Q: Is the current logged-in AppUser associated with this Document?
     // Step 1: lookup the requested Document
