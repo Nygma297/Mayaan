@@ -9,7 +9,7 @@ module.exports = (app) => {
       //no Document Found
       if (!Category) return cb(new Error("Document"));
 
-      // Step 2: check if AppUser is part of the Category associated with this Document
+      // Step 2: check if AppUser is part of the Category
       var CategoryGroup = app.models.CategoryGroup;
       var UserGroup = app.models.UserGroup
       UserGroup.find({ "userId": AppUserId }, (err, Result) => {
