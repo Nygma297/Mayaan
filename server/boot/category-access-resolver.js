@@ -4,10 +4,10 @@ module.exports = (app) => {
   Role.registerResolver('CategoryMember', (role, context, cb) => {
     var AppUserId = context.accessToken.userId;
     //Check Document
-    context.model.findById(context.modelId, (err, Document) => {
+    context.model.findById(context.modelId, (err, Category) => {
       if (err) return cb(err);
       //no Document Found
-      if (!Category) return cb(new Error("Document"));
+      if (!Category) return cb(new Error("Category"));
 
       // Step 2: check if AppUser is part of the Category
       var CategoryGroup = app.models.CategoryGroup;
