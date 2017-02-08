@@ -7,7 +7,7 @@
 // 		context.model.findById(context.modelId, (err, Document) => {
 // 			if (err) return cb(err);
 // 			//no Document Found
-// 			if (!Category) return cb(new Error("Document"));
+// 			if (!Document) return cb(new Error("Document"));
 
 // 			// Step 2: check if AppUser is part of the Category associated with this Document
 // 			var CategoryGroup = app.models.CategoryGroup;
