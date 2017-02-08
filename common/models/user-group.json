@@ -6,17 +6,28 @@
     "validateUpsert": true
   },
   "properties": {
-    "userId":{
-      "type":"string", 
+    "userId": {
+      "type": "string",
       "required": true
     },
-    "groupId":{
-      "type":"string",
-      "required":true
+    "groupId": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "appUsers": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "userId"
+    },
+    "groups": {
+      "type": "belongsTo",
+      "model": "Group",
+      "foreignKey": "groupId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",

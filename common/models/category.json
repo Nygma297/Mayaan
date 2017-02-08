@@ -24,7 +24,7 @@
     "groups": {
       "type": "hasMany",
       "model": "Group",
-      "foreignKey": "",
+      "foreignKey": "groupId",
       "through": "CategoryGroup"
     },
     "documents": {
