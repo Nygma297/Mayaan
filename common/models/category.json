@@ -17,11 +17,6 @@
       "type": "string",
       "required": true,
       "description": "For the id of creator of category"
-    },
-    "userId": {
-      "type": "string",
-      "required": true,
-      "description": "For the id of user inside the category"
     }
   },
   "validations": [],
@@ -29,7 +24,7 @@
     "groups": {
       "type": "hasMany",
       "model": "Group",
-      "foreignKey": "",
+      "foreignKey": "groupId",
       "through": "CategoryGroup"
     },
     "documents": {

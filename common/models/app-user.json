@@ -11,7 +11,7 @@
     "userGroups": {
       "type": "hasMany",
       "model": "Group",
-      "foreignKey": "userId",
+      "foreignKey": "groupId",
       "through": "UserGroup"
     }
   },

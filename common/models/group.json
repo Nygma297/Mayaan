@@ -19,12 +19,13 @@
     "appUsers": {
       "type": "hasMany",
       "model": "AppUser",
-      "foreignKey": ""
+      "foreignKey": "userId",
+      "through": "UserGroup"
     },
     "categories": {
       "type": "hasMany",
       "model": "Category",
-      "foreignKey": "",
+      "foreignKey": "categoryId",
       "through": "CategoryGroup"
     }
   },
