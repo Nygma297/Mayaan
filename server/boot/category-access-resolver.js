@@ -3,10 +3,10 @@ module.exports = (app) => {
 
   Role.registerResolver('CategoryMember', (role, context, cb) => {
     var AppUserId = context.accessToken.userId;
-    //Check Document
+    //Check Category
     context.model.findById(context.modelId, (err, Category) => {
       if (err) return cb(err);
-      //no Document Found
+      //No Category Found
       if (!Category) return cb(new Error("Category"));
 
       // Step 2: check if AppUser is part of the Category
@@ -16,7 +16,7 @@ module.exports = (app) => {
         if (err) {
           return cb(err);
         } else {
-          CategoryGroup.count({ where: { "groupId": Result.groupId }}, (err, res) => {
+          CategoryGroup.count({ where: { "groupId": Result.groupId } }, (err, res) => {
             if (err) return cb(err);
             if (res > 0) {
               // AppUser is associated with the category 
