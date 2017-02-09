@@ -12,18 +12,17 @@ module.exports = (app) => {
       // Step 2: check if AppUser is part of the Category
       var CategoryGroup = app.models.CategoryGroup;
       var UserGroup = app.models.UserGroup
-      UserGroup.find({ "userId": AppUserId }, (err, Result) => {
+      UserGroup.find({ where: { "userId": AppUserId } }, (err, Result) => {
         if (err) {
           return cb(err);
         } else {
-          CategoryGroup.find({ "groupId": Result.groupId }, (err, res) => {
+          CategoryGroup.count({ where: { "groupId": Result.groupId }}, (err, res) => {
             if (err) return cb(err);
-
             if (res > 0) {
-              // At least one Category associated with this AppUser 
+              // AppUser is associated with the category 
               return cb(null, true);
             } else {
-              // AppUser is not in this Document's Category
+              // AppUser is not associated with the Category
               return cb(null, false);
             }
           });
