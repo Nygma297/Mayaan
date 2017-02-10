@@ -16,7 +16,7 @@ module.exports = (app) => {
         if (err) {
           return cb(err);
         } else {
-          CategoryGroup.count({ where: { "groupId": Result.groupId } }, (err, res) => {
+          CategoryGroup.count({ where: { "groupId": { inq: [Result.groupId] } } }, (err, res) => {
             if (err) return cb(err);
             if (res > 0) {
               // AppUser is associated with the category 
